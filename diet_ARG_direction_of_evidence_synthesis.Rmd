@@ -1,6 +1,6 @@
 ---
 title: "Diet and the human gut resistome: reproducible quantitative direction-of-evidence synthesis"
-author: "Mayans-Moncho, Flores Ventura, Bernabeu, Collado"
+author: "Flores Ventura, Eduard"
 date: "`r format(Sys.Date(), '%d %B %Y')`"
 output:
   html_document:
@@ -1289,83 +1289,6 @@ cat("\nTables written to:\n", table_dir, "\n")
 cat("\nMain figures written to:\n", main_figure_dir, "\n")
 cat("\nSupplementary figures written to:\n", supp_figure_dir, "\n")
 ```
-
-# 12. Manuscript-ready Methods and Results text
-
-```{r manuscript-text}
-methods_text <- paste(
-  "Quantitative synthesis was conducted using a tiered, SWiM-compatible framework because the included studies differed substantially in life stage, dietary exposure definition, ARG quantification pipeline, normalization strategy, ARG database, and reported effect measure.",
-  "Formal random-effects meta-analysis was prespecified only for subsets containing at least three comparable study-level estimates within the same exposure domain, outcome type, and effect metric.",
-  "Because the current extractable estimates did not meet this requirement, no pooled random-effects estimate was calculated as a main result.",
-  "The primary quantitative synthesis used one prespecified study-level direction-of-effect judgement per study and domain, classifying evidence as supportive, null/mixed, or opposite relative to the prespecified hypothesis for that domain.",
-  "Exact one-sided binomial sign tests were used as secondary checks among directionally informative studies.",
-  "To quantify uncertainty with small numbers of studies, Bayesian sign synthesis was performed using a neutral Beta(1,1) prior, estimating the posterior probability that a study in each domain supports the prespecified hypothesis.",
-  "In the conservative Bayesian display, null/mixed evidence was retained as non-supportive rather than excluded.",
-  "Outcome-level direction analyses were treated as sensitivity analyses only because multiple outcomes within the same article are non-independent.",
-  "Extractable effect sizes were displayed descriptively as quantitative anchors, but were not pooled unless comparability criteria were met.",
-  sep = " "
-)
-
-results_text <- paste(article_results$result_sentence, collapse = " ")
-
-interpretation_text <- paste(
-  "The quantitative synthesis should be interpreted as evidence of consistency and biological direction rather than as a pooled estimate of a single diet effect.",
-  "The most defensible main outputs are the study-level direction synthesis, Bayesian posterior summaries, and pathway evidence map.",
-  "The overall all-domain summary is descriptive only and should not be presented as a global pooled diet effect.",
-  "The descriptive effect-size forest plot should be used to show quantitative anchors, not to imply a pooled average.",
-  sep = " "
-)
-
-caption_bayes <- paste(
-  "Figure. Bayesian direction-of-evidence synthesis by domain.",
-  "Curves show posterior distributions for the probability that a study supports the prespecified domain hypothesis under a neutral Beta(1,1) prior.",
-  "Null/mixed findings were treated as non-supportive in this conservative display.",
-  "Solid vertical lines represent posterior means, dashed lines represent 95% credible intervals, and the dotted line represents 0.50.",
-  "Posterior probabilities quantify consistency of evidence and should not be interpreted as biological effect sizes."
-)
-
-caption_pathway <- paste(
-  "Figure. Pathway-based evidence synthesis of diet-related ARG modulation.",
-  "Evidence from each domain is summarized as diet/exposure patterns acting through microbiome or ecological mediators to influence ARG outcomes.",
-  "Solid arrows indicate higher evidence strength/directness and dashed arrows indicate moderate or more indirect evidence.",
-  "This figure is intended as a mechanistic interpretation of the quantitative direction-of-evidence synthesis."
-)
-
-writeLines(methods_text, file.path(text_dir, "MAIN_methods_quantitative_synthesis_final.txt"))
-writeLines(results_text, file.path(text_dir, "MAIN_results_quantitative_synthesis_final.txt"))
-writeLines(interpretation_text, file.path(text_dir, "MAIN_interpretation_quantitative_synthesis_final.txt"))
-writeLines(caption_bayes, file.path(text_dir, "MAIN_caption_bayesian_posteriors.txt"))
-writeLines(caption_pathway, file.path(text_dir, "MAIN_caption_pathway_map.txt"))
-
-cat("## Draft methods paragraph\n\n")
-cat(methods_text, "\n\n")
-cat("## Draft quantitative results paragraph\n\n")
-cat(results_text, "\n\n")
-cat("## Interpretation note\n\n")
-cat(interpretation_text, "\n")
-```
-
-# 13. Recommended article placement
-
-Use the outputs as follows:
-
-**Main article**
-
-- `MAIN_TABLE_01_study_level_direction_bayesian_summary.csv`
-- `MAIN_FIGURE_01_bayesian_direction_posteriors.tiff`
-- `MAIN_FIGURE_02_pathway_evidence_map_clean.tiff`
-
-**Supplement**
-
-- `SUPP_FIGURE_evidence_strength_gradient.tiff`
-- `SUPP_FIGURE_study_level_direction_by_domain.tiff`
-- `SUPP_FIGURE_harvest_plot_study_level_evidence.tiff`
-- `SUPP_FIGURE_descriptive_effect_size_forest_no_pooling.tiff`
-- `SUPP_FIGURE_study_domain_evidence_heatmap.tiff`
-- `SUPP_FIGURE_meta_analysis_readiness.tiff`
-- Full extraction, meta-readiness, risk-of-bias/directness and outcome-level sensitivity tables.
-
-Do **not** present any pooled random-effects estimate unless additional comparable effect sizes are extracted later.
 
 ```{r session-info}
 sessionInfo()
