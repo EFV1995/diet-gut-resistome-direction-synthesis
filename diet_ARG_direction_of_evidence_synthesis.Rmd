@@ -404,31 +404,7 @@ cat("Workbook loaded from:\n", workbook_path, "\n\n")
 cat("Outputs will be written to:\n", out_dir, "\n")
 ```
 
-# 3. Use / do-not-use decision log
-
-```{r decision-log}
-decision_log <- tibble::tribble(
-  ~component, ~decision, ~recommended_location, ~reason,
-  "Study-level direction synthesis", "USE", "Main results table", "One independent row per study per domain; avoids pseudoreplication and is compatible with heterogeneous SWiM synthesis.",
-  "Bayesian sign synthesis", "USE", "Main quantitative figure", "Shows uncertainty around directional consistency with small numbers of studies. This is a probability of support, not an effect size.",
-  "Pathway evidence map", "USE", "Main mechanistic figure", "Communicates the biological interpretation: exposure → microbiome mediator → ARG outcome.",
-  "Exact binomial sign test", "USE WITH CAUTION", "Secondary / table footnote", "Transparent check of directional consistency, but low powered with small n and excludes null/mixed evidence from the directional denominator.",
-  "Harvest plot", "USE", "Supplement or optional main figure", "Useful for heterogeneous evidence, but can be visually busy. Best as a supplementary audit figure unless simplified.",
-  "Evidence heatmap", "USE", "Supplement", "Best as a transparent audit trail showing which study contributes to which domain.",
-  "Outcome-level direction synthesis", "SUPPLEMENT ONLY", "Sensitivity analysis", "Outcome rows from the same study are correlated and should not be used as the primary inference.",
-  "Descriptive effect-size forest plot", "SUPPLEMENT ONLY", "Quantitative anchors", "Useful for showing magnitude where extractable, but effects are not exchangeable and should not be pooled.",
-  "Random-effects meta-analysis across all studies", "DO NOT USE", "Not recommended", "Would pool non-exchangeable life stages, exposures, outcomes and effect metrics.",
-  "Overall all-domain estimate", "DO NOT EMPHASIZE", "Descriptive only", "Combines distinct domains and should not be interpreted as a single diet effect.",
-  "Intervention / diet domain", "REMOVE FROM PRIMARY SYNTHESIS", "Narrative/supplement only", "Only one study is available; a Bayesian domain-level estimate would mostly reflect the prior and should not be displayed as a synthesis result.",
-  "Geography / urbanization in Bayesian panel", "REMOVE FROM MAIN FIGURE", "Supplement / narrative", "Removed from the main Bayesian direction-of-evidence figure to focus the article figure on the three primary manuscript sections requested: infant feeding, infant probiotic/synbiotic interventions and adult behavioural/dietary patterns.",
-  "Combined Bayesian + harvest panel", "USE", "Main or graphical summary", "A4-ready panel exported at 1000 dpi for article layout. The Bayesian panel quantifies consistency; the harvest panel shows study-level contribution by exposure factor, sample size, directness and direction."
-)
-
-write_csv_table(decision_log, "table_00_use_do_not_use_decision_log.csv")
-knitr::kable(decision_log, caption = "Table 0. Final use / do-not-use decision log.", align = "l")
-```
-
-# 4. Study-level extraction summary
+# 3. Study-level extraction summary
 
 ```{r table-study-extraction}
 study_table <- study_master |>
@@ -452,7 +428,7 @@ knitr::kable(
 )
 ```
 
-# 5. Meta-analysis readiness check
+# 4. Meta-analysis readiness check
 
 ```{r meta-readiness}
 meta_readiness <- effects |>
@@ -492,7 +468,7 @@ if (!any(meta_readiness$candidate_for_random_effects, na.rm = TRUE)) {
 }
 ```
 
-# 6. Primary study-level direction synthesis
+# 5. Primary study-level direction synthesis
 
 ```{r study-level-direction}
 study_sign <- study_master |>
@@ -640,7 +616,7 @@ knitr::kable(
 )
 ```
 
-# 7. Outcome-level sensitivity analysis
+# 6. Outcome-level sensitivity analysis
 
 ```{r outcome-sensitivity}
 outcome_sensitivity <- outcomes |>
@@ -683,7 +659,7 @@ knitr::kable(
 )
 ```
 
-# 8. Risk-of-bias and directness sensitivity
+# 7. Risk-of-bias and directness sensitivity
 
 ```{r rob-directness}
 rob_summary <- study_master |>
@@ -721,7 +697,7 @@ knitr::kable(
 )
 ```
 
-# 9. Descriptive effect-size candidates: quantitative anchors only
+# 8. Descriptive effect-size candidates: quantitative anchors only
 
 ```{r effect-size-candidates}
 effect_table <- effects |>
@@ -752,7 +728,7 @@ knitr::kable(
 )
 ```
 
-# 10. Main and supplementary figures
+# 9. Main and supplementary figures
 
 ## Main Figure 1. Bayesian posterior probability of supportive evidence
 
@@ -1245,7 +1221,7 @@ fig_readiness
 fig_manifest_readiness <- save_article_plot(fig_readiness, "SUPP_FIGURE_meta_analysis_readiness", width = 11, height = 6, main = FALSE)
 ```
 
-# 11. Export final article tables, figures and workbook
+# 10. Export final article tables, figures and workbook
 
 ```{r final-export}
 figure_manifest <- dplyr::bind_rows(
