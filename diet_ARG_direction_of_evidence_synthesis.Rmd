@@ -9,7 +9,7 @@ output:
     number_sections: true
     theme: readable
 params:
-  workbook: "../data/diet_ARG_quantitative_synthesis_extraction.xlsx"
+  workbook: "../data/meta_data_quantitative_synthesis.xlsx"
   output_dir: "../outputs/generated"
   dpi_export: 1000
   install_missing_packages: true
