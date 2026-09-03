@@ -157,4 +157,8 @@ Please cite the associated systematic review when using this repository. Final D
 
 ## License
 
-Add the repository license selected by the authors/institution before public release (for example, MIT for code together with an appropriate data/content license for the curated extraction workbook, if permitted).
+## License
+
+Code in this repository is released under the MIT License.
+
+The curated extraction workbook, tables, figures, and manuscript-supporting content are released under CC BY 4.0, unless otherwise stated and only where permitted by the authors, journal, and institution.
