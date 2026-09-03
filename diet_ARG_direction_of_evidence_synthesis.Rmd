@@ -316,14 +316,7 @@ article_theme <- ggplot2::theme_minimal(base_size = 12) +
 
 This pipeline produces the final article inputs for a **quantified SWiM-compatible synthesis** of diet, microbiome and ARG evidence. It does **not** force a pooled random-effects meta-analysis when the available effect sizes are not exchangeable.
 
-The recommended article structure is:
-
-1. **Main Table:** study-level direction-of-evidence synthesis with Bayesian posterior estimates for the three primary manuscript sections plus a secondary descriptive primary-domains-combined analysis.
-2. **Figure 2:** combined Bayesian posterior-density panel (A) and study-level harvest plot (B), exported as PNG/PDF/TIFF at publication resolution.
-3. **Optional/supplementary figure:** cleaned pathway-based synthesis map.
-4. **Supplement:** full-domain audit tables, meta-analysis readiness, descriptive effect-size anchors, outcome-level sensitivity and risk-of-bias/directness sensitivity.
-
-The workbook retains the original distinction between probiotic/synbiotic interventions and the child/adolescent dietary intervention for auditability, but these are harmonized into the same manuscript intervention domain (ST07-ST10). Studies reporting geographical patterns are retained in the extraction and supplementary audit outputs but are not included in the primary direction-of-evidence synthesis because they assess broader geographical/ecological contrasts rather than a prespecified directional diet-ARG hypothesis.
+The workbook retains the original distinction between probiotic/synbiotic interventions and the child/adolescent dietary intervention for auditability, but these are harmonized into the same manuscript intervention domain. Studies reporting geographical patterns are retained in the extraction and supplementary audit outputs but are not included in the primary direction-of-evidence synthesis because they assess broader geographical/ecological contrasts rather than a prespecified directional diet-ARG hypothesis.
 
 # 2. Load extraction workbook
 
