@@ -153,7 +153,7 @@ Reproducible analyses were conducted in R using an R Markdown workflow. The scri
 
 ## Citation
 
-Please cite the associated systematic review when using this repository. Add the final DOI and journal citation here once available.
+Please cite the associated systematic review when using this repository. Final DOI and journal citation not available yet.
 
 ## License
 
